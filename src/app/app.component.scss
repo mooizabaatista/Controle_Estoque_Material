@@ -1,0 +1,58 @@
+// DESKTOP
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap:25px;
+  
+    span {
+      font-weight: 400;
+      cursor: pointer;
+      transition: color 0.1s;
+    }
+  
+    span:hover {
+      color: #e0d9d9;
+    }
+  }
+  
+  // MOBILE
+
+  .botao-menu-mobile{
+    margin-bottom: 20px;
+  }
+
+  mat-sidenav-container {
+    height: 100vh;
+  }
+  
+  mat-sidenav,
+  mat-sidenav-content {
+    padding: 16px;
+  }
+  
+  mat-sidenav {
+    background-color: #3f51b5;
+    width: 250px;
+  
+    mat-list {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+  
+    mat-list-item span {
+      color: #FFF;
+      display: flex;
+      gap: 20px;
+      justify-content: start;
+      align-items: center;
+    }
+  
+    mat-list:first-child {
+      height: 500px;
+    }
+  }
+  

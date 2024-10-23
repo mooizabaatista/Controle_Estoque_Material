@@ -1,4 +1,8 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +11,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'controle-estoque-app';
+
+  isMobile$!: Observable<boolean>;
+  sidebarOpened: boolean = false
+
+  constructor(private breakpointObserver: BreakpointObserver) {
+    this.isMobile$ = this.breakpointObserver.observe(Breakpoints.Handset)
+      .pipe(
+        map(result => result.matches)
+      );
+  }
 }

@@ -1,0 +1,53 @@
+.container {
+  width: 90%;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+td, th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.text-button {
+  margin: 0 20px;
+}
+
+.title_center {
+  height: 40px;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+@media (max-width: 600px) { // Ajuste para telas menores
+  mat-paginator {
+    flex-direction: column; // Coloque os elementos em coluna
+    align-items: center; // Centralize os itens
+  }
+
+  // Ajuste os itens do paginator
+  .mat-paginator-page-size {
+    margin-bottom: 0.5rem; // Adicione um espaçamento inferior
+  }
+
+  .mat-paginator {
+    font-size: 0.8rem; // Diminua o tamanho da fonte
+    button {
+      min-width: 40px; // Tamanho mínimo dos botões
+    }
+  }
+}
