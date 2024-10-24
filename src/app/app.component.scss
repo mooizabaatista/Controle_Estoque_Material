@@ -1,58 +1,89 @@
 // DESKTOP
 .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 25px;
+
+  span {
+    font-weight: 400;
+    cursor: pointer;
+    transition: color 0.1s;
+  }
+
+  span:hover {
+    color: #e0d9d9;
+  }
+}
+
+// MOBILE
+.botao-menu-mobile {
+  margin-bottom: 20px;
+}
+
+mat-sidenav-container {
+  height: 100vh;
+
+  .list-end {
+    position: absolute;
+    bottom: 0;
+    background-color: #00000d;
+    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex: 1;
-    gap:25px;
-  
-    span {
-      font-weight: 400;
-      cursor: pointer;
-      transition: color 0.1s;
-    }
-  
-    span:hover {
-      color: #e0d9d9;
-    }
-  }
-  
-  // MOBILE
+    padding: 0;
 
-  .botao-menu-mobile{
-    margin-bottom: 20px;
+    .list-end-items {
+      display: flex;
+      justify-content: end;
+      font-size: 18px;
+      padding: 0;
+    }
+
+    mat-list-item {
+      padding: 0 15px;
+    }
+  }
+}
+
+.mat-menu {
+  width: 180px !important;
+}
+
+.mat-menu-item {
+  padding: 0 20px !important;
+
+  i {
+    margin-right: 10px;
+    font-size: 22px;
+  }
+}
+
+mat-sidenav-content {
+  padding: 16px;
+}
+
+mat-sidenav {
+  background-color: #3f51b5;
+  width: 250px;
+
+  mat-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
-  mat-sidenav-container {
-    height: 100vh;
+  mat-list-item span {
+    color: #FFF;
+    display: flex;
+    gap: 20px;
+    justify-content: start;
+    align-items: center;
   }
-  
-  mat-sidenav,
-  mat-sidenav-content {
-    padding: 16px;
+
+  mat-list:first-child {
+    height: 500px;
   }
-  
-  mat-sidenav {
-    background-color: #3f51b5;
-    width: 250px;
-  
-    mat-list {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-  
-    mat-list-item span {
-      color: #FFF;
-      display: flex;
-      gap: 20px;
-      justify-content: start;
-      align-items: center;
-    }
-  
-    mat-list:first-child {
-      height: 500px;
-    }
-  }
-  
+}

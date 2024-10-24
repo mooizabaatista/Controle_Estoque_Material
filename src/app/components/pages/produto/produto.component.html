@@ -1,16 +1,8 @@
 <div class="container">
-    <div class="container-header mat-elevation-z7">
-        <mat-card class="title_center">
-            <mat-card-title>Produtos</mat-card-title>
-        </mat-card>
-    </div>
 
-    <div class="container-buttons">
-        <button mat-raised-button color="primary" class="custom-button">
-            <span class="icon-button"><i class="fa-solid fa-plus me-2"></i></span>
-            <span class="text-button">Adicionar Produto</span>
-        </button>
-    </div>
+    <app-header textoHeader="Produtos"></app-header>
+
+    <app-button textoBotao="Adicionar Produto" iconeBotao="fa fa-plus"></app-button>
 
     <div class="table-container">
         <mat-form-field>
@@ -50,6 +42,6 @@
 
 
     </div>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements" >
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
     </mat-paginator>
 </div>

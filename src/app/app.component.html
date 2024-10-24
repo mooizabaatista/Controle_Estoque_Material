@@ -1,21 +1,53 @@
 <!-- NAVBAR DESKTOP -->
 <mat-toolbar color="primary" *ngIf="!(isMobile$ | async) && !sidebarOpened">
+    <!-- BRAND-->
     <div>Code</div>
+
+    <!-- MENU PRINCIPAL -->
     <div class="navbar">
-        <span [routerLink]="['']" routerLinkActive="router-link-active" ><i class="fa-solid fa-home me-2"></i> Página Inicial</span>
+        <span [routerLink]="['']" routerLinkActive="router-link-active"><i class="fa-solid fa-home me-2"></i> Página
+            Inicial</span>
         <span [routerLink]="['produtos']"><i class="fa-solid fa-gift me-2"></i> Produtos</span>
-        <span><i class="fa-solid fa-dolly me-2"></i> Estoque</span>
-        <span><i class="fa-solid fa-rotate me-2"></i> Movimentações</span>
-        <span><i class="fa-solid fa-street-view me-2"></i> Frente de Serviço</span>
+        <span>
+            <i class="fa-solid fa-dolly me-2"></i> Estoque
+        </span>
+        <span>
+            <i class="fa-solid fa-rotate me-2"></i> Movimentações
+        </span>
+        <span>
+            <i class="fa-solid fa-street-view me-2"></i> Frente de Serviço
+        </span>
+    </div>
+
+    <!-- MENU DE CONFIGURAÇÕES -->
+    <div class="list-end-items">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <span><i class="fa-solid fa-gear"></i></span>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item class="mat-menu-item">
+                <i class="fa-solid fa-users-gear"></i>
+                <span>Gerenciar Usuários</span>
+            </button>
+
+            <button mat-menu-item class="mat-menu-item">
+                <i class="fa-solid fa-door-open"></i>
+                <span>Sair</span>
+            </button>
+        </mat-menu>
     </div>
 </mat-toolbar>
 
+<!-- CONTEUDO PRINCIPAL DESKTOP -->
 <router-outlet *ngIf="!(isMobile$ | async)"></router-outlet>
 
 <!-- NAVBAR MOBILE -->
 <div *ngIf="isMobile$ | async">
     <mat-sidenav-container>
+        <!-- SIDEBAR -->
         <mat-sidenav [(opened)]="sidebarOpened" mode="side">
+
+            <!-- MENU PRINCIPAL SIDEBAR -->
             <mat-list>
                 <mat-list-item>
                     <span [routerLink]="['']" (click)="sidebarOpened = !sidebarOpened"><i
@@ -50,19 +82,36 @@
                 <mat-divider></mat-divider>
             </mat-list>
 
+            <!-- MENU BOTTOM CONFIGURAÇÕES -->
             <mat-list class="list-end">
                 <mat-list-item>
-                    <span>Sair</span>
+                    <div class="list-end-items">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <span><i class="fa-solid fa-gear"></i></span>
+                        </button>
+
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item class="mat-menu-item">
+                                <i class="fa-solid fa-users-gear"></i>
+                                <span>Gerenciar Usuários</span>
+                            </button>
+
+                            <button mat-menu-item class="mat-menu-item">
+                                <i class="fa-solid fa-door-open"></i>
+                                <span>Sair</span>
+                            </button>
+                        </mat-menu>
+                    </div>
                 </mat-list-item>
             </mat-list>
         </mat-sidenav>
 
+        <!-- CONTEÚDO PRINCIPAL MOBILE -->
         <mat-sidenav-content>
             <i class="botao-menu-mobile" (click)="sidebarOpened = !sidebarOpened"
                 [ngClass]="sidebarOpened ? 'fa-solid fa-x fa-2x' : 'fa-solid fa-bars fa-2x'"></i>
 
             <router-outlet></router-outlet>
-
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

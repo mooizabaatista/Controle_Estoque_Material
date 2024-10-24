@@ -22,6 +22,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatMenuModule } from '@angular/material/menu';
+import { ButtonComponent } from './components/button/button.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -29,7 +32,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   declarations: [
     AppComponent,
     ProdutoComponent,
-    HomeComponent
+    HomeComponent,
+    ButtonComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
