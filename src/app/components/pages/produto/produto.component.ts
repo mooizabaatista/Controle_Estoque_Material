@@ -26,7 +26,6 @@ export class ProdutoComponent implements OnInit {
     this.getAll();
   }
 
-
   getAll() {
     this.produtoService.getAll().subscribe({
       next: (data: any) => {

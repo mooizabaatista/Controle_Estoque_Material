@@ -29,6 +29,11 @@ import { ProdutoAddOrEditComponent } from './components/pages/produto-add-or-edi
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { LoginComponent } from './components/pages/login/login.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { EstoqueComponent } from './components/pages/estoque/estoque.component';
+import { EstoqueAddOrEditComponent } from './components/pages/estoque-add-or-edit/estoque-add-or-edit.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 
 @NgModule({
@@ -40,6 +45,8 @@ import { AuthInterceptor } from './auth.interceptor';
     HeaderComponent,
     ProdutoAddOrEditComponent,
     LoginComponent,
+    EstoqueComponent,
+    EstoqueAddOrEditComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +71,8 @@ import { AuthInterceptor } from './auth.interceptor';
     MatPaginatorModule,
     MatMenuModule,
     ReactiveFormsModule,
+    MatSelectModule,
+    MatAutocompleteModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]

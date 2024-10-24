@@ -1,0 +1,43 @@
+<div class="container">
+    <app-header [textoHeader]="isEdit ? 'Editar item do estoque' : 'Adicionar item ao estoque'"></app-header>
+    <div class="container-form">
+        <form class="form-estoque" [formGroup]="frm">
+            <!-- Produto -->
+            <mat-form-field class="full-width">
+                <mat-label>Produto</mat-label>
+                <mat-select formControlName="produtoId">
+                    <mat-option *ngFor="let produto of produtos" [value]="produto.id">
+                        {{ produto.nome }} <!-- Exibe o nome do produto -->
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="frm.get('produtoId')?.getError('required') && frm.get('produtoId')?.touched">
+                    <strong>*</strong> Informe o produto.
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Qtd Inicial -->
+            <mat-form-field class="full-width">
+                <mat-label>Qtd. Inical</mat-label>
+                <input type="number" matInput formControlName="qtdInicial" placeholder="Ex: 15">
+                <mat-error *ngIf="frm.get('qtdInicial')?.getError('required') && frm.get('qtdInicial')?.touched">
+                    <strong>*</strong> Informe a quantidade inicial.
+                </mat-error>
+            </mat-form-field>
+
+            <div class="button-group">
+                <button mat-raised-button color="primary" [disabled]="frm.invalid" (click)="onSubmit()">
+                    <div class="button-group-items">
+                        Salvar
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </button>
+                <button mat-raised-button color="warn" [routerLink]="['/estoque']">
+                    <div class="button-group-items">
+                        Voltar
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -5,12 +5,10 @@
 
     <!-- MENU PRINCIPAL -->
     <div class="navbar">
-        <span [routerLink]="['']" routerLinkActive="router-link-active"><i class="fa-solid fa-home me-2"></i> Página
+        <span [routerLink]="['']"><i class="fa-solid fa-home me-2"></i> Página
             Inicial</span>
         <span [routerLink]="['produtos']"><i class="fa-solid fa-gift me-2"></i> Produtos</span>
-        <span>
-            <i class="fa-solid fa-dolly me-2"></i> Estoque
-        </span>
+        <span [routerLink]="['estoque']"><i class="fa-solid fa-dolly me-2"></i> Estoque</span>
         <span>
             <i class="fa-solid fa-rotate me-2"></i> Movimentações
         </span>
@@ -64,7 +62,7 @@
                 <mat-divider></mat-divider>
 
                 <mat-list-item>
-                    <span><i class="fa-solid fa-dolly me-2"></i> Estoque</span>
+                    <span  [routerLink]="['estoque']" (click)="sidebarOpened = !sidebarOpened"><i class="fa-solid fa-dolly me-2"></i> Estoque</span>
                 </mat-list-item>
 
                 <mat-divider></mat-divider>
@@ -108,7 +106,8 @@
 
         <!-- CONTEÚDO PRINCIPAL MOBILE -->
         <mat-sidenav-content>
-            <i class="botao-menu-mobile fa-solid fa-bars fa-2x" *ngIf="!isLoginOrRegisterPage" (click)="sidebarOpened = !sidebarOpened"></i>
+            <i class="botao-menu-mobile fa-solid fa-bars fa-2x" *ngIf="!isLoginOrRegisterPage"
+                (click)="sidebarOpened = !sidebarOpened"></i>
 
             <router-outlet></router-outlet>
         </mat-sidenav-content>
