@@ -28,9 +28,7 @@
               "src/styles.scss",
               "@angular/material/prebuilt-themes/indigo-pink.css"
             ],
-            "scripts": [
-              "https://fonts.googleapis.com/icon?family=Material+Icons"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
