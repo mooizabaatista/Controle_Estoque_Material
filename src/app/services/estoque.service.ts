@@ -15,7 +15,7 @@ export class EstoqueService {
 
 
   constructor(private httpClient: HttpClient, private authService: AuthService) {
-    this.urlBase = 'https://localhost:7000/api/v1';
+    this.urlBase = 'https://controle-estoque-api.azurewebsites.net/api/v1';
   }
 
 
