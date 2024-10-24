@@ -45,7 +45,7 @@
 <div *ngIf="isMobile$ | async">
     <mat-sidenav-container>
         <!-- SIDEBAR -->
-        <mat-sidenav [(opened)]="sidebarOpened" mode="side">
+        <mat-sidenav [(opened)]="sidebarOpened" mode="push">
 
             <!-- MENU PRINCIPAL SIDEBAR -->
             <mat-list>
@@ -108,8 +108,7 @@
 
         <!-- CONTEÚDO PRINCIPAL MOBILE -->
         <mat-sidenav-content>
-            <i class="botao-menu-mobile" (click)="sidebarOpened = !sidebarOpened"
-                [ngClass]="sidebarOpened ? 'fa-solid fa-x fa-2x' : 'fa-solid fa-bars fa-2x'"></i>
+            <i class="botao-menu-mobile fa-solid fa-bars fa-2x" (click)="sidebarOpened = !sidebarOpened"></i>
 
             <router-outlet></router-outlet>
         </mat-sidenav-content>
