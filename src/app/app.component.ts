@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'controle-estoque-app';
 
   isMobile$!: Observable<boolean>;
-  sidebarOpened: boolean = false
+  sidebarOpened: boolean = true
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.isMobile$ = this.breakpointObserver.observe(Breakpoints.Handset)
