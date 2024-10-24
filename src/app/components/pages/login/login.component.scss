@@ -6,11 +6,6 @@
   background: #000;
 }
 
-.mat-form-field {
-  width: 100%;
-  min-width: 300px;
-}
-
 mat-card {
   width: 100%; 
   max-width: 600px; 
@@ -22,6 +17,7 @@ mat-card {
   }
 
   mat-card-content {
+    
     justify-content: center;
 
     form {
@@ -49,6 +45,23 @@ mat-card {
         font-size: 1.3rem;
       }
     }
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0;
+
+  button {
+    font-size: 1.3rem;
+    width: 40%;
   }
 }
 
@@ -120,14 +133,4 @@ mat-card {
   border-radius: 15px;
 }
 
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 25px 0;
 
-  button {
-    font-size: 1.3rem;
-    width: 40%;
-  }
-}
