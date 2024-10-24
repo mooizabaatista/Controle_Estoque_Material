@@ -9,4 +9,48 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.container {
+  width: 90%;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+td,
+th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+
+
+@media (max-width: 600px) {
+
+  // Ajuste para telas menores
+  mat-paginator {
+    flex-direction: column; // Coloque os elementos em coluna
+    align-items: center; // Centralize os itens
+  }
+
+  // Ajuste os itens do paginator
+  .mat-paginator-page-size {
+    margin-bottom: 0.5rem; // Adicione um espaçamento inferior
+  }
+
+  .mat-paginator {
+    font-size: 0.8rem; // Diminua o tamanho da fonte
+
+    button {
+      min-width: 40px; // Tamanho mínimo dos botões
+    }
+  }
+}
+
 

@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 // Angular Material
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button'
@@ -25,7 +25,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
 import { ButtonComponent } from './components/button/button.component';
 import { HeaderComponent } from './components/header/header.component';
-
+import { ProdutoAddOrEditComponent } from './components/pages/produto-add-or-edit/produto-add-or-edit.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { LoginComponent } from './components/pages/login/login.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 @NgModule({
@@ -35,6 +38,8 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     ButtonComponent,
     HeaderComponent,
+    ProdutoAddOrEditComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,7 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    SweetAlert2Module.forRoot(),
 
     // Angular Material
     LayoutModule,
@@ -56,9 +62,10 @@ import { HeaderComponent } from './components/header/header.component';
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
-    MatMenuModule
+    MatMenuModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

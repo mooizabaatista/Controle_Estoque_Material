@@ -9,4 +9,5 @@ export class ButtonComponent {
 
   @Input() textoBotao = "";
   @Input() iconeBotao = "";
+  @Input() routeLink = '';
 }

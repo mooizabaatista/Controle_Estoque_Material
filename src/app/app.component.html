@@ -1,5 +1,5 @@
 <!-- NAVBAR DESKTOP -->
-<mat-toolbar color="primary" *ngIf="!(isMobile$ | async) && !sidebarOpened">
+<mat-toolbar color="primary" *ngIf="!(isMobile$ | async) && !sidebarOpened && !isLoginOrRegisterPage">
     <!-- BRAND-->
     <div>Code</div>
 
@@ -30,7 +30,7 @@
                 <span>Gerenciar Usuários</span>
             </button>
 
-            <button mat-menu-item class="mat-menu-item">
+            <button mat-menu-item class="mat-menu-item" (click)="logout()">
                 <i class="fa-solid fa-door-open"></i>
                 <span>Sair</span>
             </button>
@@ -42,7 +42,7 @@
 <router-outlet *ngIf="!(isMobile$ | async)"></router-outlet>
 
 <!-- NAVBAR MOBILE -->
-<div *ngIf="isMobile$ | async">
+<div *ngIf="(isMobile$ | async)">
     <mat-sidenav-container>
         <!-- SIDEBAR -->
         <mat-sidenav [(opened)]="sidebarOpened" mode="push">
@@ -96,7 +96,7 @@
                                 <span>Gerenciar Usuários</span>
                             </button>
 
-                            <button mat-menu-item class="mat-menu-item">
+                            <button mat-menu-item class="mat-menu-item" (click)="logout()">
                                 <i class="fa-solid fa-door-open"></i>
                                 <span>Sair</span>
                             </button>
@@ -108,7 +108,7 @@
 
         <!-- CONTEÚDO PRINCIPAL MOBILE -->
         <mat-sidenav-content>
-            <i class="botao-menu-mobile fa-solid fa-bars fa-2x" (click)="sidebarOpened = !sidebarOpened"></i>
+            <i class="botao-menu-mobile fa-solid fa-bars fa-2x" *ngIf="!isLoginOrRegisterPage" (click)="sidebarOpened = !sidebarOpened"></i>
 
             <router-outlet></router-outlet>
         </mat-sidenav-content>

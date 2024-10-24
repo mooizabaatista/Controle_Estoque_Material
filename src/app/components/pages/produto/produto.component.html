@@ -2,7 +2,7 @@
 
     <app-header textoHeader="Produtos"></app-header>
 
-    <app-button textoBotao="Adicionar Produto" iconeBotao="fa fa-plus"></app-button>
+    <app-button textoBotao="Adicionar Produto" iconeBotao="fa fa-plus" routeLink="/add-or-edit-produto"></app-button>
 
     <div class="table-container">
         <mat-form-field>
@@ -28,14 +28,15 @@
                 <th mat-header-cell *matHeaderCellDef> Ações </th>
                 <td class="tdAcoes" mat-cell *matCellDef="let element">
                     <!-- Aqui você pode adicionar botões ou ícones de ação -->
-                    <button mat-icon-button>
+                    <button mat-icon-button [routerLink]="['/add-or-edit-produto', element.id]">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="onDelete(element.id)">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </td>
             </ng-container>
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>

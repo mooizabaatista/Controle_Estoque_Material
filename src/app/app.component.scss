@@ -21,11 +21,11 @@
 .botao-menu-mobile {
   position: fixed;
   z-index: 999;
-  background-color: #3F51B5;
+  background-color: #3f51b5;
   padding: 10px;
   border-radius: 50%;
   font-size: 1.3rem;
-  color: #FFF;
+  color: #fff;
 }
 
 mat-sidenav-container {
@@ -40,7 +40,7 @@ mat-sidenav-container {
     align-items: center;
     justify-content: center;
     padding: 0;
-    height: 80px;
+    height: 50px;
 
     .list-end-items {
       display: flex;
@@ -63,7 +63,6 @@ mat-sidenav-container {
   }
 }
 
-
 .mat-menu {
   width: 180px !important;
 }
@@ -82,7 +81,10 @@ mat-sidenav-container {
 }
 
 mat-sidenav-content {
-  padding: 16px;
+  i {
+    padding: 10px;
+    margin:15px;
+  }
 }
 
 mat-sidenav {
@@ -94,11 +96,11 @@ mat-sidenav {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: 30px;
+    gap: 10px;
   }
 
   mat-list-item span {
-    color: #FFF;
+    color: #fff;
     display: flex;
     gap: 20px;
     justify-content: start;
