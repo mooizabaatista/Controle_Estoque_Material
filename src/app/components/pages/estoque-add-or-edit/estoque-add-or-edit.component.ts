@@ -18,8 +18,9 @@ export class EstoqueAddOrEditComponent implements OnInit {
   estoqueId!: string | null;
   isEdit = false;
   frm!: FormGroup;
-  estoqueEdit!: Estoque
+  estoqueEdit?: Estoque = undefined
   produtos: any
+  produtosJaEmEstoque: any
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,6 +35,12 @@ export class EstoqueAddOrEditComponent implements OnInit {
   ngOnInit(): void {
     this.getId();
 
+    this.produtoService.getAllNotInEstoque().subscribe({
+      next: (data) => {
+        this.produtosJaEmEstoque = data.resultado
+      }
+    })
+
     this.frm = this.formBuilder.group({
       produtoId: ['', [Validators.required]], // FormControl para produto
       qtdInicial: ['', [Validators.required, Validators.min(0)]], // FormControl para qtdInicial
@@ -46,9 +53,12 @@ export class EstoqueAddOrEditComponent implements OnInit {
     })
 
     if (this.estoqueId) {
+      this.isEdit = true;
       this.estoqueService.getById(Number(this.estoqueId)).subscribe({
         next: (data) => {
           this.estoqueEdit = data.resultado as Estoque
+
+          console.log(this.estoqueEdit)
 
           this.frm.patchValue({
             produtoId: this.estoqueEdit.produto.id,
@@ -57,11 +67,6 @@ export class EstoqueAddOrEditComponent implements OnInit {
         }
       })
     }
-
-
-
-
-
   }
 
 
@@ -70,6 +75,7 @@ export class EstoqueAddOrEditComponent implements OnInit {
     if (this.estoqueId) {
       this.estoqueService.edit(Number(this.estoqueId), this.frm.value).subscribe({
         next: (data) => {
+          console.log("foi daqui")
           showMessage('Sucesso', 'success', 'Operação realizada com sucesso.', false, this.router, undefined, '/estoque');
         },
         error: (error) => {
@@ -102,11 +108,8 @@ export class EstoqueAddOrEditComponent implements OnInit {
     return hasId;
   }
 
-  loadProdutos() {
-    this.estoqueService.getAll().subscribe({
-      next: (data) => {
-        this.produtos = data.resultado;  // Carrega os produtos no array
-      }
-    });
+
+  isProductDisabled(produto: any): boolean {
+    return this.produtosJaEmEstoque.some((p: any) => p.id === produto.id);
   }
 }

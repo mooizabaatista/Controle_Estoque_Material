@@ -1,26 +1,33 @@
 table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+td,
+th {
+  word-wrap: break-word;
+  /* Prevent long words from breaking the layout */
+  /* Prevent the cells from being squished */
+}
+
+@media (max-width: 600px) {
+  table {
     width: 100%;
+    display: block;
     overflow-x: auto;
+    /* Ensure scroll on mobile */
   }
-  
-  td, th {
-    word-wrap: break-word; /* Prevent long words from breaking the layout */
-    white-space: nowrap; /* Prevent the cells from being squished */
+
+  th,
+  td {
+    padding: 8px;
+    /* Add padding to keep cells readable */
   }
-  
-  @media (max-width: 600px) {
-    table {
-      width: 100%;
-      display: block;
-      overflow-x: auto; /* Ensure scroll on mobile */
-    }
-  
-    th, td {
-      padding: 8px; /* Add padding to keep cells readable */
-    }
-  
-    .tdAcoes {
-      display: flex;
-      justify-content: center;
-    }
+
+  .tdAcoes {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
   }
+}

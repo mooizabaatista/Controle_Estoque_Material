@@ -2,18 +2,36 @@
     <app-header [textoHeader]="isEdit ? 'Editar item do estoque' : 'Adicionar item ao estoque'"></app-header>
     <div class="container-form">
         <form class="form-estoque" [formGroup]="frm">
-            <!-- Produto -->
-            <mat-form-field class="full-width">
-                <mat-label>Produto</mat-label>
-                <mat-select formControlName="produtoId">
-                    <mat-option *ngFor="let produto of produtos" [value]="produto.id">
-                        {{ produto.nome }} <!-- Exibe o nome do produto -->
-                    </mat-option>
-                </mat-select>
-                <mat-error *ngIf="frm.get('produtoId')?.getError('required') && frm.get('produtoId')?.touched">
-                    <strong>*</strong> Informe o produto.
-                </mat-error>
-            </mat-form-field>
+
+
+            <div *ngIf="estoqueEdit == undefined; else displayProductName">
+                <!-- Produto -->
+                <mat-form-field class="full-width">
+                    <mat-label>Produto</mat-label>
+                    <mat-select formControlName="produtoId">
+                        <mat-option *ngFor="let produto of produtos" [value]="produto.id"
+                            [disabled]="!isProductDisabled(produto)">
+                            {{ produto.nome }} <!-- Exibe o nome do produto -->
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="frm.get('produtoId')?.getError('required') && frm.get('produtoId')?.touched">
+                        <strong>*</strong> Informe o produto.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <ng-template #displayProductName>
+                <div class="productNameDisplay">
+                    <div>
+                        <span> <span
+                                style=" font-size: 1.1rem;margin-right: 5px;color:rgb(227, 227, 19);font-weight: 600;">
+                                #</span>{{estoqueEdit?.produto?.nome}}</span>
+
+                        <span *ngIf="estoqueEdit?.produto?.descricao"
+                            style=" font-size: 0.7rem;"><em>({{estoqueEdit?.produto?.descricao}})</em></span>
+                    </div>
+                </div>
+            </ng-template>
+
 
             <!-- Qtd Inicial -->
             <mat-form-field class="full-width">

@@ -12,7 +12,7 @@ export class ProdutoService {
 
 
   constructor(private httpClient: HttpClient) {
-    this.urlBase = 'https://controle-estoque-api.azurewebsites.net/api/v1';
+    this.urlBase = 'https://localhost:7000/api/v1';
   }
 
   getAll(): Observable<ResponseData> {

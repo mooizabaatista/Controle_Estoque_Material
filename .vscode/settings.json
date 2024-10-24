@@ -10,9 +10,6 @@
         "**/.vscode!": true,
         "**/bin": true,
         "**/obj": true,
-        "**/venva": true,
-        "[!s]*/**": true,
-        "s[!r]*/**": true,
-        "sr[!c]*/**": true
+        "**/venva": true
     }
 }
