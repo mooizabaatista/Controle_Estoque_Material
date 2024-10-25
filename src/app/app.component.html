@@ -68,13 +68,14 @@
                 <mat-divider></mat-divider>
 
                 <mat-list-item>
-                    <span><i class="fa-solid fa-rotate me-2"></i> Movimentações</span>
+                    <span [routerLink]="['movimentacao']" (click)="sidebarOpened = !sidebarOpened"><i class="fa-solid fa-rotate me-2"></i> Movimentações</span>
                 </mat-list-item>
+                
 
                 <mat-divider></mat-divider>
 
                 <mat-list-item>
-                    <span><i class="fa-solid fa-street-view me-2"></i> Frente de Serviço</span>
+                    <span [routerLink]="['frente-servico']" (click)="sidebarOpened = !sidebarOpened"><i class="fa-solid fa-street-view me-2"></i> Frente de Serviço</span>
                 </mat-list-item>
 
                 <mat-divider></mat-divider>

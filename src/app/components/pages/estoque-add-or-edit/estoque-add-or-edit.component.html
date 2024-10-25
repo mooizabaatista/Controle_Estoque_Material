@@ -2,8 +2,6 @@
     <app-header [textoHeader]="isEdit ? 'Editar item do estoque' : 'Adicionar item ao estoque'"></app-header>
     <div class="container-form">
         <form class="form-estoque" [formGroup]="frm">
-
-
             <div *ngIf="estoqueEdit == undefined; else displayProductName">
                 <!-- Produto -->
                 <mat-form-field class="full-width">
@@ -19,6 +17,7 @@
                     </mat-error>
                 </mat-form-field>
             </div>
+            
             <ng-template #displayProductName>
                 <div class="productNameDisplay">
                     <div>
