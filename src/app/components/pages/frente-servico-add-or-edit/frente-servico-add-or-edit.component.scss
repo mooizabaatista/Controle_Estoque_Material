@@ -1,0 +1,54 @@
+.form-frente-servico {
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .container-form {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+  
+  .form-frente-servico {
+    mat-form-field {
+      margin-bottom: 15px;
+    }
+  }
+  
+  mat-error {
+    font-size: 0.75rem;
+  }
+  
+  @media screen and (max-width: 599px) {
+    .button-group {
+      flex-direction: row !important;
+    }
+  }
+  
+  .button-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  
+    .button-group-items {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  
+    button {
+      width: 100%;
+      font-size: 0.8rem;
+      padding: 15px 0;
+  
+      i {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  

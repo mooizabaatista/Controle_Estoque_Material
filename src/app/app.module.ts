@@ -33,7 +33,13 @@ import { EstoqueComponent } from './components/pages/estoque/estoque.component';
 import { EstoqueAddOrEditComponent } from './components/pages/estoque-add-or-edit/estoque-add-or-edit.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-
+import { FrenteServicoComponent } from './components/pages/frente-servico/frente-servico.component';
+import { FrenteServicoAddOrEditComponent } from './components/pages/frente-servico-add-or-edit/frente-servico-add-or-edit.component';
+import { MovimentacaoComponent } from './components/pages/movimentacao/movimentacao.component';
+import { MovimentacaoAddOrEditComponent } from './components/pages/add-or-edit-movimentacao/movimentacao-add-or-edit.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -46,7 +52,11 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     ProdutoAddOrEditComponent,
     LoginComponent,
     EstoqueComponent,
-    EstoqueAddOrEditComponent
+    EstoqueAddOrEditComponent,
+    FrenteServicoComponent,
+    FrenteServicoAddOrEditComponent,
+    MovimentacaoComponent,
+    MovimentacaoAddOrEditComponent
   ],
   imports: [
     BrowserModule,
@@ -72,9 +82,12 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatMenuModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

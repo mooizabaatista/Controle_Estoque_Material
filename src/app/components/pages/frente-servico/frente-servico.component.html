@@ -1,0 +1,47 @@
+<div class="container">
+    <app-header textoHeader="Frente de Serviço"></app-header>
+
+    <app-button textoBotao="Adicionar frente de serviço" routeLink="/add-or-edit-frente-servico" iconeBotao="fa fa-plus"></app-button>
+
+    <div class="table-container">
+        <mat-form-field>
+            <mat-label>Pesquisar</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Nome Column -->
+            <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+            </ng-container>
+
+            <!-- Descrição Column -->
+            <ng-container matColumnDef="descricao">
+                <th mat-header-cell *matHeaderCellDef> Descrição </th>
+                <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+            </ng-container>
+
+            <!-- Ações Column -->
+            <ng-container matColumnDef="acoes">
+                <th mat-header-cell *matHeaderCellDef> Ações </th>
+                <td class="tdAcoes" mat-cell *matCellDef="let element">
+                    <!-- Aqui você pode adicionar botões ou ícones de ação -->
+                    <button mat-icon-button [routerLink]="['/add-or-edit-frente-servico', element.id]">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="onDelete(element.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

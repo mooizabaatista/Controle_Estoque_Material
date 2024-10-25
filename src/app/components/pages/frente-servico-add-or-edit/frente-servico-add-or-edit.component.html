@@ -1,0 +1,41 @@
+<div class="container">
+    <app-header [textoHeader]="isEdit ? 'Editar Frente de Servico' : 'Adicionar Frente de Servico'"></app-header>
+
+    <div class="container-form">
+        <form class="form-FrenteServico" [formGroup]="frm">
+            <!-- Nome -->
+            <mat-form-field class="full-width">
+                <mat-label>Nome</mat-label>
+                <input type="text" matInput formControlName="nome" placeholder="Ex: Tinta acrílica">
+                <mat-error *ngIf="frm.get('nome')?.hasError('required') && frm.get('nome')?.touched">
+                    <strong>*</strong> Por favor, informe um nome válido.
+                </mat-error>
+                <mat-error *ngIf="frm.get('nome')?.hasError('minlength') && frm.get('nome')?.touched">
+                    <strong>*</strong> Informe pelo menos {{ frm.get('nome')?.errors?.['minlength']?.requiredLength }}
+                    caracteres.
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Descrição -->
+            <mat-form-field class="full-width">
+                <mat-label>Descrição</mat-label>
+                <input type="text" matInput formControlName="descricao" placeholder="Ex: 20L">
+            </mat-form-field>
+
+            <div class="button-group">
+                <button mat-raised-button color="primary" [disabled]="frm.invalid" (click)="SubmitForm()">
+                    <div class="button-group-items">
+                        Salvar
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </button>
+                <button mat-raised-button color="warn" [routerLink]="['/frente-servico']">
+                    <div class="button-group-items">
+                        Voltar
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

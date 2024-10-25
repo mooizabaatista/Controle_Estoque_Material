@@ -1,14 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-
-html,
-body {
+/* Global Styles */
+html, body {
   height: 100%;
-}
-body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+/* Container Styling */
 .container {
   width: 90%;
   margin: 60px auto;
@@ -20,6 +17,7 @@ body {
 .table-container {
   display: flex;
   flex-direction: column;
+  overflow-x: auto; /* Adiciona rolagem horizontal para a tabela */
 }
 
 
@@ -27,8 +25,14 @@ td,
 th {
   text-align: center !important;
   vertical-align: middle !important;
+  word-wrap: break-word;
 }
 
+
+table {
+  max-width: 100%;
+  overflow-x: auto !important;
+}
 
 
 @media (max-width: 600px) {
@@ -50,6 +54,28 @@ th {
     button {
       min-width: 40px; // Tamanho mínimo dos botões
     }
+  }
+
+  .table-container {
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto; /* Adiciona rolagem horizontal para a tabela */
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    table-layout: auto;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  td, th {
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap; /* Impede quebra de linha */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona "..." para conteúdo muito longo */
   }
 }
 
