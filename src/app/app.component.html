@@ -4,17 +4,11 @@
     <div>Code</div>
 
     <!-- MENU PRINCIPAL -->
-    <div class="navbar">
-        <span [routerLink]="['']"><i class="fa-solid fa-home me-2"></i> Página
-            Inicial</span>
+    <div class="navbar"><span [routerLink]="['']"><i class="fa-solid fa-home me-2"></i> Página Inicial</span>
         <span [routerLink]="['produtos']"><i class="fa-solid fa-gift me-2"></i> Produtos</span>
         <span [routerLink]="['estoque']"><i class="fa-solid fa-dolly me-2"></i> Estoque</span>
-        <span>
-            <i class="fa-solid fa-rotate me-2"></i> Movimentações
-        </span>
-        <span>
-            <i class="fa-solid fa-street-view me-2"></i> Frente de Serviço
-        </span>
+        <span [routerLink]="['movimentacao']"><i class="fa-solid fa-rotate me-2"></i> Movimentações</span>
+        <span [routerLink]="['frente-servico']"><i class="fa-solid fa-street-view me-2"></i> Frente de Serviço</span>
     </div>
 
     <!-- MENU DE CONFIGURAÇÕES -->
@@ -62,20 +56,23 @@
                 <mat-divider></mat-divider>
 
                 <mat-list-item>
-                    <span  [routerLink]="['estoque']" (click)="sidebarOpened = !sidebarOpened"><i class="fa-solid fa-dolly me-2"></i> Estoque</span>
+                    <span [routerLink]="['estoque']" (click)="sidebarOpened = !sidebarOpened"><i
+                            class="fa-solid fa-dolly me-2"></i> Estoque</span>
                 </mat-list-item>
 
                 <mat-divider></mat-divider>
 
                 <mat-list-item>
-                    <span [routerLink]="['movimentacao']" (click)="sidebarOpened = !sidebarOpened"><i class="fa-solid fa-rotate me-2"></i> Movimentações</span>
+                    <span [routerLink]="['movimentacao']" (click)="sidebarOpened = !sidebarOpened"><i
+                            class="fa-solid fa-rotate me-2"></i> Movimentações</span>
                 </mat-list-item>
-                
+
 
                 <mat-divider></mat-divider>
 
                 <mat-list-item>
-                    <span [routerLink]="['frente-servico']" (click)="sidebarOpened = !sidebarOpened"><i class="fa-solid fa-street-view me-2"></i> Frente de Serviço</span>
+                    <span [routerLink]="['frente-servico']" (click)="sidebarOpened = !sidebarOpened"><i
+                            class="fa-solid fa-street-view me-2"></i> Frente de Serviço</span>
                 </mat-list-item>
 
                 <mat-divider></mat-divider>

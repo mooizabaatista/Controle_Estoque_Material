@@ -1,6 +1,6 @@
 <div class="container">
 
-    <app-header textoHeader="Produtos"></app-header>
+    <app-header textoHeader="Produtos" [isHomePage]="true"></app-header>
 
     <app-button textoBotao="Adicionar Produto" iconeBotao="fa fa-plus" routeLink="/add-or-edit-produto"></app-button>
 
@@ -29,10 +29,10 @@
                 <td class="tdAcoes" mat-cell *matCellDef="let element">
                     <!-- Aqui você pode adicionar botões ou ícones de ação -->
                     <button mat-icon-button [routerLink]="['/add-or-edit-produto', element.id]">
-                        <mat-icon>edit</mat-icon>
+                        <mat-icon color="primary">edit</mat-icon>
                     </button>
                     <button mat-icon-button (click)="onDelete(element.id)">
-                        <mat-icon>delete</mat-icon>
+                        <mat-icon color="accent">delete</mat-icon>
                     </button>
                 </td>
             </ng-container>

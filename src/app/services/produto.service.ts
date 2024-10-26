@@ -19,8 +19,12 @@ export class ProdutoService {
     return this.httpClient.get<ResponseData>(`${this.urlBase}/Produtos`);
   }
 
-  getAllNotInEstoque(): Observable<ResponseData> {
+  getNotInEstoque(): Observable<ResponseData> {
     return this.httpClient.get<ResponseData>(`${this.urlBase}/Produtos/GetNotInEstoque`);
+  }
+
+  getInEstoque(): Observable<ResponseData> {
+    return this.httpClient.get<ResponseData>(`${this.urlBase}/Produtos/GetInEstoque`);
   }
 
   getById(id: number): Observable<ResponseData> {

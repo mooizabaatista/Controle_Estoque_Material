@@ -1,5 +1,6 @@
 .form-estoque {
-  width: 100%;
+  width: 67%;
+  margin: 0 auto;
 }
 
 .full-width {
@@ -34,6 +35,7 @@ mat-error {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 40px 0;
 
   .button-group-items {
     display: flex;
@@ -68,4 +70,14 @@ mat-error {
 
   text-align: center;
   line-height: 23px;
+}
+
+@media screen and (max-width: 599px) {
+  .button-group {
+    flex-direction: row !important;
+  }
+
+  .form-estoque {
+    width: 100%;
+  }
 }

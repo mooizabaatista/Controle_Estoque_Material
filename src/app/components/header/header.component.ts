@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() textoHeader = "";
+  @Input() iconeHeader = "";
+  @Input() isHomePage = false;
 }

@@ -35,7 +35,7 @@ export class EstoqueAddOrEditComponent implements OnInit {
   ngOnInit(): void {
     this.getId();
 
-    this.produtoService.getAllNotInEstoque().subscribe({
+    this.produtoService.getNotInEstoque().subscribe({
       next: (data) => {
         this.produtosJaEmEstoque = data.resultado
       }

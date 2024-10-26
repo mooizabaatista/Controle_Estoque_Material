@@ -1,5 +1,9 @@
-<div class="container-header mat-elevation-z7">
+<div class="container-header mat-elevation-z7" [class.tamanho-container-pagina-add-or-edit]="!isHomePage"
+    [class.tamanho-container-paginaInicial]="isHomePage">
     <mat-card class="title_center">
-        <mat-card-title>{{textoHeader}}</mat-card-title>
+        <mat-card-title> <i class="{{iconeHeader}}" style="color:#db0f57"></i></mat-card-title>
+        <mat-card-content>
+            <p> {{textoHeader}}</p>
+        </mat-card-content>
     </mat-card>
 </div>

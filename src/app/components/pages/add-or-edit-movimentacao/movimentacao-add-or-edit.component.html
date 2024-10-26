@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container" *ngIf="produtos && produtos.length >0; else displayNotProducts">
     <app-header [textoHeader]="isEdit ? 'Editar Movimentação' : 'Adicionar Movimentação'"></app-header>
 
 
     <div class="container-form">
-        <form class="form-produto" [formGroup]="frm">
+        <form class="form-movimentacao" [formGroup]="frm">
             <div class="form-group">
                 <mat-form-field class="full-width">
                     <mat-label>Data da movimentação</mat-label>
@@ -21,12 +21,12 @@
                 <div class="form-group">
                     <mat-label>Tipo de movimentação</mat-label>
                     <mat-radio-group formControlName="tipoMovimentacao">
-                        <mat-radio-button value="1">Entrada</mat-radio-button>
-                        <mat-radio-button value="2">Saída</mat-radio-button>
+                        <mat-radio-button [value]="1">Entrada</mat-radio-button>
+                        <mat-radio-button [value]="2">Saída</mat-radio-button>
                     </mat-radio-group>
                 </div>
-
             </div>
+
 
             <div class="form-group">
                 <mat-form-field>
@@ -75,7 +75,7 @@
                         <i class="fa-solid fa-check"></i>
                     </div>
                 </button>
-                <button mat-raised-button color="warn" [routerLink]="['/estoque']">
+                <button mat-raised-button color="warn" [routerLink]="['/movimentacao']">
                     <div class="button-group-items">
                         Voltar
                         <i class="fa-solid fa-arrow-left"></i>
@@ -85,3 +85,10 @@
         </form>
     </div>
 </div>
+
+<ng-template #displayNotProducts>
+    <div class="container mat-elevation-z12" style="margin-top: 100px;">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h2>Insira algum produto no estoque para realizar o cadastro de alguma movimentação.</h2>
+    </div>
+</ng-template>

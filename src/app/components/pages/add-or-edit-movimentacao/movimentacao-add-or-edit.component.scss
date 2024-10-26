@@ -1,9 +1,21 @@
 .form-movimentacao {
-  width: 100%;
+  width: 67%;
+  margin: 0 auto;
 }
 
 .full-width {
   width: 100%;
+}
+
+.container {
+  padding: 15px;
+  text-align: center;
+  width: 75%;
+
+  i {
+    font-size: 3rem;
+    color: #db0f57;
+  }
 }
 
 .container-form {
@@ -26,16 +38,11 @@ mat-error {
   display: flex;
 }
 
-.button-group {
-  margin-top: 30px;
-}
-
-
 .form-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 15px;
 
   mat-radio-group {
     display: flex;
@@ -56,6 +63,8 @@ mat-error {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 40px 0;
+
 
   .button-group-items {
     display: flex;
@@ -71,5 +80,15 @@ mat-error {
     i {
       font-size: 1.2rem;
     }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .button-group {
+    flex-direction: row !important;
+  }
+
+  .form-movimentacao {
+    width: 100%;
   }
 }

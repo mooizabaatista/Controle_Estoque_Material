@@ -1,7 +1,8 @@
 <div class="container">
-    <app-header textoHeader="Frente de Serviço"></app-header>
+    <app-header textoHeader="Frente de Serviço" [isHomePage]="true"></app-header>
 
-    <app-button textoBotao="Adicionar frente de serviço" routeLink="/add-or-edit-frente-servico" iconeBotao="fa fa-plus"></app-button>
+    <app-button textoBotao="Adicionar frente de serviço" routeLink="/add-or-edit-frente-servico"
+        iconeBotao="fa fa-plus"></app-button>
 
     <div class="table-container">
         <mat-form-field>
@@ -28,10 +29,10 @@
                 <td class="tdAcoes" mat-cell *matCellDef="let element">
                     <!-- Aqui você pode adicionar botões ou ícones de ação -->
                     <button mat-icon-button [routerLink]="['/add-or-edit-frente-servico', element.id]">
-                        <mat-icon>edit</mat-icon>
+                        <mat-icon color="primary">edit</mat-icon>
                     </button>
                     <button mat-icon-button (click)="onDelete(element.id)">
-                        <mat-icon>delete</mat-icon>
+                        <mat-icon color="accent">delete</mat-icon>
                     </button>
                 </td>
             </ng-container>

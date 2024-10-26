@@ -30,14 +30,12 @@ export class MovimentacaoAddOrEditComponent implements OnInit {
     private route: ActivatedRoute) { }
 
 
-
-
   ngOnInit(): void {
     this.getId();
 
     this.frm = this.formBuilder.group({
       data: ['', [Validators.required]],
-      tipoMovimentacao: [0, Validators.required],
+      tipoMovimentacao: [1, Validators.required],
       qtd: ['', Validators.required],
       produtoId: ['', Validators.required],
       frenteServicoId: ['', Validators.required]
@@ -53,18 +51,16 @@ export class MovimentacaoAddOrEditComponent implements OnInit {
 
           this.frm.patchValue({
             data: this.movimentacaoEdit.data,
-            tipoMovimentacao: (this.movimentacaoEdit.tipoMovimentacao),
+            tipoMovimentacao: this.movimentacaoEdit.tipoMovimentacao,
             qtd: this.movimentacaoEdit.qtd,
             produtoId: this.movimentacaoEdit.produtoId,
             frenteServicoId: this.movimentacaoEdit.frenteServicoId,
           })
-
-          console.log('Tipo de Movimentação após patchValue:', this.frm.get('tipoMovimentacao')?.value);
         }
       })
     }
 
-    this.produtoService.getAll().subscribe({
+    this.produtoService.getInEstoque().subscribe({
       next: (data) => {
         this.produtos = data.resultado;
       }
@@ -101,7 +97,7 @@ export class MovimentacaoAddOrEditComponent implements OnInit {
     }
   }
 
-  
+
   getId(): Boolean {
     let hasId = false;
     this.route.paramMap.subscribe(params => {

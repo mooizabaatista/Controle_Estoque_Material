@@ -1,9 +1,34 @@
 .title_center {
-    height: 40px;
+    height: 120px;
     display: flex;
     justify-content: center;
     /* align horizontal */
     align-items: center;
     /* align vertical */
     margin-top: 15px;
+
+    i {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+}
+
+.tamanho-container-paginaInicial {
+    width: 100%;
+}
+
+.tamanho-container-pagina-add-or-edit {
+    width: 60%;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 599px) {
+    .container-header {
+        width: 100%;
+    }
 }
