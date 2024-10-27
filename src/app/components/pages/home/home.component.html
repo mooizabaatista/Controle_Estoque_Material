@@ -1,3 +1,4 @@
-<div class="containr">
-    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
+<div class="container">
+    <canvas baseChart [datasets]="barChartData.datasets" [labels]="barChartData.labels" [options]="barChartOptions">
+    </canvas>
 </div>

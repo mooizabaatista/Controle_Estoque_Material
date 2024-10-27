@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import * as Highcharts from 'highcharts/highstock';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 
 @Component({
@@ -8,14 +9,34 @@ import { MovimentacaoService } from 'src/app/services/movimentacao.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  Highcharts: typeof Highcharts = Highcharts;
-  chartOptions!: Highcharts.Options;
-
   constructor(private movimentacaoService: MovimentacaoService) { }
 
   nomesTopCinco: string[] = [];
   valoresTopCinco: number[] = [];
   cores: string[] = [];
+
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective<'bar'> | undefined;
+
+  public barChartOptions: ChartConfiguration<'bar'>['options'] = {
+    scales: {
+      x: {},
+      y: {
+        min: 0,
+      },
+    },
+    plugins: {
+      legend: {
+        display: true,
+      },
+    },
+  };
+
+  public barChartType = 'bar' as const;
+
+  public barChartData: ChartData<'bar'> = {
+    labels: [],
+    datasets: [],
+  };
 
   getTopCinco() {
     this.movimentacaoService.getTopCinco().subscribe({
@@ -25,6 +46,8 @@ export class HomeComponent implements OnInit {
         this.nomesTopCinco = topCinco.map((item: any) => item['nome']);
         this.valoresTopCinco = topCinco.map((item: any) => item['contagem']);
 
+        // Gera cores para cada produto
+        this.cores = this.generateRandomColors(this.nomesTopCinco.length);
 
         this.updateChart(); // Atualiza o gráfico após obter os dados
       }
@@ -36,46 +59,17 @@ export class HomeComponent implements OnInit {
   }
 
   updateChart() {
-    if (!this.nomesTopCinco.length || !this.valoresTopCinco.length) {
-      console.error('Dados insuficientes para gerar o gráfico');
-      return; // Impede a atualização se os dados não estiverem prontos
-    }
+    this.barChartData.labels = this.nomesTopCinco;
+    this.barChartData.datasets = [{
+      data: this.valoresTopCinco,
+      backgroundColor: this.cores,
+      label: 'Movimentações'
+    }];
 
-    this.chartOptions = {
-      title: {
-        text: 'Produtos mais utilizados'
-      },
-      subtitle: {
-        text: 'Saiba os 5 produtos que tiveram mais movimentações'
-      },
-      yAxis: {
-        title: {
-          text: 'Número de movimentações'
-        },
-        min: 0,
-      },
-      xAxis: {
-        categories: this.nomesTopCinco,
-      },
-      plotOptions: {
-        series: {
-          dataLabels: {
-            enabled: true
-          }
-        }
-      },
-      tooltip: {
-        formatter: function () {
-          return `<span style="color: ${this.color}">\u25CF</span> <b>${this.series.name}</b>: ${this.y}`;
-        }
-      },
-      series: this.nomesTopCinco.map((nome, index) => ({
-        type: 'column',
-        name: nome,
-        data: [this.valoresTopCinco[index]],
-        color: this.cores[index] // Usa a cor correspondente para cada item
-      })),
-    };
+    // Atualiza o gráfico
+    if (this.chart) {
+      this.chart.update();
+    }
   }
 
   getRandomHexColor(): string {
@@ -90,4 +84,16 @@ export class HomeComponent implements OnInit {
     }
     return colors;
   }
+
+
+  public pieChartData: ChartData<'pie', number[], string | string[]> = {
+    labels: [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'],
+    datasets: [
+      {
+        data: [300, 500, 100],
+      },
+    ],
+  };
+
+  public pieChartType: ChartType = 'pie';
 }

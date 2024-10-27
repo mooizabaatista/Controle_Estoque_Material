@@ -41,8 +41,7 @@ import { MovimentacaoAddOrEditComponent } from './components/pages/add-or-edit-m
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
-import { ChartModule } from 'angular-highcharts'
-import { HighchartsChartModule } from 'highcharts-angular';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -89,8 +88,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
-    ChartModule,
-    HighchartsChartModule
+    NgChartsModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],
