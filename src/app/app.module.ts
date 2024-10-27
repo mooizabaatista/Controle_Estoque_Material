@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+
+
 // Angular Material
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button'
@@ -40,6 +41,8 @@ import { MovimentacaoAddOrEditComponent } from './components/pages/add-or-edit-m
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
+import { ChartModule } from 'angular-highcharts'
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({
@@ -85,7 +88,9 @@ import { MatRadioModule } from '@angular/material/radio';
     MatAutocompleteModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    ChartModule,
+    HighchartsChartModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],

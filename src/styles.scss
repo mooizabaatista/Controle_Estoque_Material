@@ -1,5 +1,6 @@
 /* Global Styles */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -17,7 +18,8 @@ html, body {
 .table-container {
   display: flex;
   flex-direction: column;
-  overflow-x: auto; /* Adiciona rolagem horizontal para a tabela */
+  overflow-x: auto;
+  /* Adiciona rolagem horizontal para a tabela */
 }
 
 
@@ -59,9 +61,10 @@ table {
   .table-container {
     display: flex;
     flex-direction: column;
-    overflow-x: auto; /* Adiciona rolagem horizontal para a tabela */
+    overflow-x: auto;
+    /* Adiciona rolagem horizontal para a tabela */
   }
-  
+
   /* Table Styling */
   table {
     width: 100%;
@@ -69,14 +72,15 @@ table {
     max-width: 100%;
     overflow-x: auto;
   }
-  
-  td, th {
+
+  td,
+  th {
     text-align: center;
     vertical-align: middle;
-    white-space: nowrap; /* Impede quebra de linha */
+    white-space: nowrap;
+    /* Impede quebra de linha */
     overflow: hidden;
-    text-overflow: ellipsis; /* Adiciona "..." para conteúdo muito longo */
+    text-overflow: ellipsis;
+    /* Adiciona "..." para conteúdo muito longo */
   }
 }
-
-
