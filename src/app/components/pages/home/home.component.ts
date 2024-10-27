@@ -87,10 +87,10 @@ export class HomeComponent implements OnInit {
 
 
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
-    labels: [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'],
+    labels: ['Anália Franco 1', 'Mooca CT3'],
     datasets: [
       {
-        data: [300, 500, 100],
+        data: [400, 100],
       },
     ],
   };
