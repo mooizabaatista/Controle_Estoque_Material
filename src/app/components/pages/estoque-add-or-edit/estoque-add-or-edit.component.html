@@ -1,23 +1,41 @@
 <div class="container">
-    <app-header [textoHeader]="isEdit ? 'Editar item do estoque' : 'Adicionar item ao estoque'"></app-header>
+    <app-header [textoHeader]="isEdit ? 'Editar item do estoque' : 'Adicionar ao estoque'"></app-header>
     <div class="container-form">
         <form class="form-estoque" [formGroup]="frm">
+
             <div *ngIf="estoqueEdit == undefined; else displayProductName">
-                <!-- Produto -->
-                <mat-form-field class="full-width">
-                    <mat-label>Produto</mat-label>
-                    <mat-select formControlName="produtoId">
-                        <mat-option *ngFor="let produto of produtos" [value]="produto.id"
-                            [disabled]="!isProductDisabled(produto)">
-                            {{ produto.nome }} <!-- Exibe o nome do produto -->
-                        </mat-option>
-                    </mat-select>
-                    <mat-error *ngIf="frm.get('produtoId')?.getError('required') && frm.get('produtoId')?.touched">
-                        <strong>*</strong> Informe o produto.
-                    </mat-error>
-                </mat-form-field>
+                <div class="form-group">
+                    <!-- Produto -->
+                    <mat-form-field class="full-width">
+                        <mat-label>Produto</mat-label>
+                        <mat-select formControlName="produtoId">
+                            <mat-option *ngFor="let produto of produtos" [value]="produto.id"
+                                [disabled]="!isProductDisabled(produto)">
+                                {{ produto.nome }} <!-- Exibe o nome do produto -->
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="frm.get('produtoId')?.getError('required') && frm.get('produtoId')?.touched">
+                            <strong>*</strong> Informe o produto.
+                        </mat-error>
+                    </mat-form-field>
+
+
+                     <!-- Qtd Inicial -->
+                     <mat-form-field class="full-width">
+                        <mat-label>Qtd. Inical</mat-label>
+                        <input type="number" matInput formControlName="qtdInicial" placeholder="Ex: 15">
+                        <mat-error
+                            *ngIf="frm.get('qtdInicial')?.getError('required') && frm.get('qtdInicial')?.touched">
+                            <strong>*</strong> Informe a quantidade inicial.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
             </div>
-            
+
+
+
+
+
             <ng-template #displayProductName>
                 <div class="productNameDisplay">
                     <div>
@@ -29,17 +47,19 @@
                             style=" font-size: 0.7rem;"><em>({{estoqueEdit?.produto?.descricao}})</em></span>
                     </div>
                 </div>
+                <div class="form-group">
+                    <!-- Qtd Inicial -->
+                    <mat-form-field class="full-width">
+                        <mat-label>Qtd. Inical</mat-label>
+                        <input type="number" matInput formControlName="qtdInicial" placeholder="Ex: 15">
+                        <mat-error
+                            *ngIf="frm.get('qtdInicial')?.getError('required') && frm.get('qtdInicial')?.touched">
+                            <strong>*</strong> Informe a quantidade inicial.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+               
             </ng-template>
-
-
-            <!-- Qtd Inicial -->
-            <mat-form-field class="full-width">
-                <mat-label>Qtd. Inical</mat-label>
-                <input type="number" matInput formControlName="qtdInicial" placeholder="Ex: 15">
-                <mat-error *ngIf="frm.get('qtdInicial')?.getError('required') && frm.get('qtdInicial')?.touched">
-                    <strong>*</strong> Informe a quantidade inicial.
-                </mat-error>
-            </mat-form-field>
 
             <div class="button-group">
                 <button mat-raised-button color="primary" [disabled]="frm.invalid" (click)="onSubmit()">

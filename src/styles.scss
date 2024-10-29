@@ -15,72 +15,108 @@ body {
   gap: 30px;
 }
 
+.container-form {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Table Styling */
 .table-container {
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
-  /* Adiciona rolagem horizontal para a tabela */
+  overflow-x: auto; /* Rolagem horizontal */
 }
-
-
-td,
-th {
-  text-align: center !important;
-  vertical-align: middle !important;
-  word-wrap: break-word;
-}
-
 
 table {
+  width: 100%;
   max-width: 100%;
-  overflow-x: auto !important;
+  overflow-x: auto;
 }
 
 
+.tdAcoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Group Styling */
+.form-group-container {
+  display: flex;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.form-group mat-radio-group {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mat-Error Styling */
+mat-error {
+  font-size: 0.75rem;
+}
+
+/* Button Group Styling */
+.button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 40px 0;
+}
+
+.button-group-items {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+button {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 15px 0;
+}
+
+button i {
+  font-size: 1.2rem;
+}
+
+td, th {
+  text-align: center !important;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 600px) {
-
-  // Ajuste para telas menores
-  mat-paginator {
-    flex-direction: column; // Coloque os elementos em coluna
-    align-items: center; // Centralize os itens
-  }
-
-  // Ajuste os itens do paginator
-  .mat-paginator-page-size {
-    margin-bottom: 0.5rem; // Adicione um espaçamento inferior
-  }
-
   .mat-paginator {
-    font-size: 0.8rem; // Diminua o tamanho da fonte
-
-    button {
-      min-width: 40px; // Tamanho mínimo dos botões
-    }
-  }
-
-  .table-container {
-    display: flex;
     flex-direction: column;
-    overflow-x: auto;
-    /* Adiciona rolagem horizontal para a tabela */
+    align-items: center;
+    font-size: 0.8rem;
   }
 
-  /* Table Styling */
+  .mat-paginator-page-size {
+    margin-bottom: 0.5rem;
+  }
+
+  .mat-paginator button {
+    min-width: 40px;
+  }
+
   table {
-    width: 100%;
-    table-layout: auto;
-    max-width: 100%;
+    display: block;
     overflow-x: auto;
   }
 
-  td,
-  th {
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-    /* Impede quebra de linha */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* Adiciona "..." para conteúdo muito longo */
+  th,
+  td {
+    padding: 8px;
   }
 }

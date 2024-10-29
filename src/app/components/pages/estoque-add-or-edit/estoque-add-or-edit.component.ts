@@ -4,8 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Estoque } from 'src/app/interfaces/estoque';
 import { EstoqueService } from 'src/app/services/estoque.service';
 import { ProdutoService } from 'src/app/services/produto.service';
-import { ResponseData } from 'src/app/interfaces/response-data';
-import Swal from 'sweetalert2';
 import { showMessage } from 'src/app/utils/show-message-util.ts';
 
 @Component({
@@ -69,8 +67,6 @@ export class EstoqueAddOrEditComponent implements OnInit {
     }
   }
 
-
-
   onSubmit() {
     if (this.estoqueId) {
       this.estoqueService.edit(Number(this.estoqueId), this.frm.value).subscribe({
@@ -110,6 +106,6 @@ export class EstoqueAddOrEditComponent implements OnInit {
 
 
   isProductDisabled(produto: any): boolean {
-    return this.produtosJaEmEstoque.some((p: any) => p.id === produto.id);
+    return this.produtosJaEmEstoque?.some((p: any) => p.id === produto.id);
   }
 }

@@ -46,10 +46,9 @@ export class HomeComponent implements OnInit {
         this.nomesTopCinco = topCinco.map((item: any) => item['nome']);
         this.valoresTopCinco = topCinco.map((item: any) => item['contagem']);
 
-        // Gera cores para cada produto
         this.cores = this.generateRandomColors(this.nomesTopCinco.length);
 
-        this.updateChart(); // Atualiza o gráfico após obter os dados
+        this.updateChart();
       }
     });
   }
@@ -63,10 +62,9 @@ export class HomeComponent implements OnInit {
     this.barChartData.datasets = [{
       data: this.valoresTopCinco,
       backgroundColor: this.cores,
-      label: 'Movimentações'
+      label: 'Top 5 Produtos',
     }];
-
-    // Atualiza o gráfico
+  
     if (this.chart) {
       this.chart.update();
     }
