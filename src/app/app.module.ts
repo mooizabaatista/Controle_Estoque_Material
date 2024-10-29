@@ -41,6 +41,9 @@ import { MovimentacaoAddOrEditComponent } from './components/pages/add-or-edit-m
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatBadgeModule } from '@angular/material/badge';
+
 import { NgChartsModule } from 'ng2-charts';
 
 
@@ -88,6 +91,10 @@ import { NgChartsModule } from 'ng2-charts';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatDividerModule,
+    MatBadgeModule,
+
+
     NgChartsModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],

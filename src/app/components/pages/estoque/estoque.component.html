@@ -39,7 +39,9 @@
             <!-- Estoque Final Column -->
             <ng-container matColumnDef="estoqueFinal">
                 <th mat-header-cell *matHeaderCellDef> Estoque Final </th>
-                <td mat-cell *matCellDef="let element"> {{element.estoqueFinal}} </td>
+                <td mat-cell *matCellDef="let element">
+                    <span matBadge="{{element.estoqueFinal}}"></span>
+                </td>
             </ng-container>
 
             <!-- Ações Column -->

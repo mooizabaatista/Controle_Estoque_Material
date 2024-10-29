@@ -1,105 +1,30 @@
-.chart-tipo-mov {
-    width: 100%;
-    // margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10%;
-    max-height: 300px !important;
-}
-
-.container-left {
+.dados-mov,
+.dados-frente-servico,
+.dados-os-mais-mov {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+}
+
+.dados-mov {
+    margin-top: 50px;
 
     mat-card {
-        width: 70%;
-        height: 100px;
-        background-color: #000;
-        color: #FFF;
-
-        .header-tipo-movimentacao {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            .tipo-movimentacao-title {
-                font-size: 1.3rem;
-                margin-bottom: 15px;
-            }
-
-            .tipo-movimentacao-subtitle {
-                display: flex;
-                align-items: end;
-                justify-content: center;
-            }
-        }
-    }
-}
-
-.header-tipo-movimentacao {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-}
-
-.chart-container-bars {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-
-    canvas {
-        height: 300px !important;
+        width: 50%;
         margin: 0 auto;
     }
-}
 
-
-@media screen and (max-width:600px) {
-    .chart-tipo-mov {
+    mat-card-header {
         display: flex;
-        flex-direction: column;
-        margin-top: 220px;
-        gap: 50px;
-        text-align: center;
-
-        canvas {
-            width: 90% !important;
-            height: 100% !important;
-        }
+        justify-content: center;
+        width: 30%;
+        margin: 0 auto;
     }
 
-    .chart-frente-serv {
+    .header-tipo-movimentacao {
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .chart-container-bars {
-        margin-top: 160px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-
-        canvas {
-            width: 100%;
-            height: 100% !important;
-        }
+        gap: 10px;
     }
 }
