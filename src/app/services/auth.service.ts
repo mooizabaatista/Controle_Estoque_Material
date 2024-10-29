@@ -23,11 +23,11 @@ export class AuthService {
   }
 
   decodeJwt(token: string): any {
-    const base64Url = token.split('.')[1]; 
+    const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(escape(window.atob(base64))); 
+    const jsonPayload = decodeURIComponent(escape(window.atob(base64)));
 
-    return JSON.parse(jsonPayload); 
+    return JSON.parse(jsonPayload);
   }
 
   isAdmin(): boolean {
@@ -49,7 +49,13 @@ export class AuthService {
 
     if (token) {
       const decodedToken = this.decodeJwt(token)
-      return true;
+      const currentTimestamp = Math.floor(Date.now() / 1000);
+
+      if (decodedToken.exp && currentTimestamp < decodedToken.exp) {
+        return true;
+      } else {
+        return false;
+      }
     }
 
     return false;
