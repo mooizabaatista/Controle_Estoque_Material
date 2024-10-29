@@ -1,12 +1,1 @@
-{
-  "routes": [
-    {
-      "route": ".*",
-      "methods": [
-        "get"
-      ],
-      "rewrite": "/",
-      "redirect": "index.html"
-    }
-  ]
-}
+{}
