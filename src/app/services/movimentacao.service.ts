@@ -46,4 +46,8 @@ export class MovimentacaoService {
   getTopCinco(): Observable<any> {
     return this.httpClient.get<any>(`${this.urlBase}/Movimentacoes/GetTopCinco`);
   }
+
+  getTopMov(): Observable<any> {
+    return this.httpClient.get<any>(`${this.urlBase}/Movimentacoes/GetTopMov`);
+  }
 }

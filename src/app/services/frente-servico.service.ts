@@ -27,6 +27,10 @@ export class FrenteServicoService {
     return this.httpClient.get<ResponseData>(`${this.urlBase}/FrenteServicos/${id}`);
   }
 
+  getTopCinco(): Observable<any> {
+    return this.httpClient.get<any>(`${this.urlBase}/FrenteServicos/GetTopCinco`);
+  }
+
   add(data: any): Observable<ResponseData> {
     return this.httpClient.post<ResponseData>(`${this.urlBase}/FrenteServicos`, data);
   }
